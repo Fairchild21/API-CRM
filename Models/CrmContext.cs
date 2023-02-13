@@ -8,6 +8,12 @@ public partial class CrmContext : DbContext
 {
     public CrmContext()
     {
+        // Database.EnsureCreated();
+        // System.Console.WriteLine("Db");
+        // User SU = new User("Angel@mail.com", "0123", "Angel", "Farichild", "0123", "ADMIN");
+        // Users.Add(SU);
+        // SaveChanges();
+        // System.Console.WriteLine("Add done");
         
     }
 
@@ -24,7 +30,7 @@ public partial class CrmContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=BOR-64BLN73;Database=CRM;Trusted_Connection=True;trustServerCertificate=true;");
+        => optionsBuilder.UseSqlServer("Server=LAPTOP-APU3DEDU;Database=Crm;Trusted_Connection=True;trustServerCertificate=true;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

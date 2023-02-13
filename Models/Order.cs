@@ -24,7 +24,7 @@ public partial class Order
     {
 
     }
-    public Order(int Id,string TypePresta,int IdClient,decimal NbJours, decimal TjmHt,decimal Tva,bool State)
+    public Order(string TypePresta,int IdClient,decimal NbJours, decimal TjmHt,decimal Tva,bool State)
     {
         this.TypePresta = TypePresta;
         this.IdClient = IdClient; 
