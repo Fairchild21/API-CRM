@@ -72,14 +72,16 @@ public class UserController : ControllerBase
             return tmp;
         }
 
-        // [HttpDelete ("{id}")]
-        // public string Delete(int id)
-        // {
-        //     _context.Users.Remove(sUser[id -1]);
-        //     _context.SaveChanges();
-        //     System.Console.WriteLine("User deleted");
-        //     return "User removed";
-        // }
+        [HttpDelete ("{id}")]
+        public User Delete(int id)
+        {
+             User dbR = _context.Users.Find(id);
+            _context.Users.Find(id);
+            _context.Users.Remove(dbR);
+            _context.SaveChanges();
+            System.Console.WriteLine("User deleted");
+            return dbR;
+        }
 
     // [HttpDelete ("{id}")]
     // public string Delete(int id)
