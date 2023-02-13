@@ -8,12 +8,14 @@ public partial class CrmContext : DbContext
 {
     public CrmContext()
     {
+        // Database.EnsureDeleted();
         // Database.EnsureCreated();
         // System.Console.WriteLine("Db");
         // User SU = new User("Angel@mail.com", "0123", "Angel", "Farichild", "0123", "ADMIN");
         // Users.Add(SU);
         // SaveChanges();
         // System.Console.WriteLine("Add done");
+        
         
     }
 
