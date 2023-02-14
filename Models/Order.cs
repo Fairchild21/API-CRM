@@ -17,15 +17,16 @@ public partial class Order
 
     public decimal? Tva { get; set; }
 
-    public bool? State { get; set; }
+    public string? State { get; set; }
+    public string? Comment { get; set;}
     
-    [System.Text.Json.Serialization.JsonIgnore]
+     [System.Text.Json.Serialization.JsonIgnore]
     public virtual Client IdClientNavigation { get; set; } = null!;
     public Order()
     {
 
     }
-    public Order(string TypePresta,int IdClient,decimal NbJours, decimal TjmHt,decimal Tva,bool State)
+    public Order(string TypePresta,int IdClient,decimal NbJours, decimal TjmHt,decimal Tva,string State, string Comment)
     {
         this.TypePresta = TypePresta;
         this.IdClient = IdClient; 
@@ -33,6 +34,7 @@ public partial class Order
         this.TjmHt = TjmHt;
         this.Tva = Tva;
         this.State = State;
+        this.Comment = Comment;
         // this.IdClientNavigation = client;
         // this.IdClient = client.Id;
 

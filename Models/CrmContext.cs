@@ -12,6 +12,8 @@ public partial class CrmContext : DbContext
         // Database.EnsureCreated();
         // System.Console.WriteLine("Db");
         // User SU = new User("Angel@mail.com", "0123", "Angel", "Farichild", "0123", "ADMIN");
+        // Client SC = new Client("BOEING", true, 20, 200000, "Compagnie aérienne");
+        // Clients.Add(SC);
         // Users.Add(SU);
         // SaveChanges();
         // System.Console.WriteLine("Add done");
