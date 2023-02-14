@@ -18,7 +18,8 @@ public partial class Order
     public decimal? Tva { get; set; }
 
     public bool? State { get; set; }
-
+    
+    [System.Text.Json.Serialization.JsonIgnore]
     public virtual Client IdClientNavigation { get; set; } = null!;
     public Order()
     {
@@ -32,6 +33,8 @@ public partial class Order
         this.TjmHt = TjmHt;
         this.Tva = Tva;
         this.State = State;
+        // this.IdClientNavigation = client;
+        // this.IdClient = client.Id;
 
     }
 }

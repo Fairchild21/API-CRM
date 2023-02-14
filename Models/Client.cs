@@ -16,7 +16,8 @@ public partial class Client
     public decimal? TotalCaHt { get; set; }
 
     public string? Comment { get; set; }
-
+ 
+    
     public virtual List<Order> Orders { get; } = new List<Order>();
     public Client()
     {

@@ -17,14 +17,14 @@ public class OrderController : ControllerBase
     {
         
     }
-        [HttpGet]
-        public List<Order> Get()
-        {
-            return _context.Orders.ToList();
-        }
+    [HttpGet]
+    public List<Order> Get()
+    {
+        return _context.Orders.ToList();
+    }
 
-        [HttpGet]
-        [Route("{id}")]
+    [HttpGet]
+    [Route("{id}")]
 
         public Order Get(int id)
         {
@@ -35,9 +35,9 @@ public class OrderController : ControllerBase
         public string Post(Order tmp)
         {
             _context.Orders.Add(tmp);
-            System.Console.WriteLine("client added");
+            System.Console.WriteLine("order added");
             _context.SaveChanges();
-            return "client added";
+            return "order added";
         }
      
 
@@ -58,34 +58,13 @@ public class OrderController : ControllerBase
             return tmp;
         }
 
-        // [HttpDelete ("{id}")]
-        // public string Delete(int id)
-        // {
-        //     _context.Users.Remove(sUser[id -1]);
-        //     _context.SaveChanges();
-        //     System.Console.WriteLine("User deleted");
-        //     return "User removed";
-        // }
-
-    // [HttpDelete ("{id}")]
-    // public string Delete(int id)
-    // {
-    //     using (var transaction = _context.Database.BeginTransaction())
-    //     {
-    //         try
-    //         {
-    //             Utilisateur db = _context.Utilisateur.Find(id);
-    //             _context.Utilisateur.Remove(db);
-    //             _context.SaveChanges();
-    //             transaction.Commit();
-    //             System.Console.WriteLine("User deleted");
-    //             return "User deleted";
-    //         }
-    //             catch (Exception)
-    //         {
-    //             transaction.Rollback();
-    //             return "Error deleting user";
-    //         }
-    //     }
-    // }
+        [HttpDelete ("{id}")]
+        public Order Delete(int id)
+        {
+             Order dbR = _context.Orders.Find(id);
+            _context.Orders.Remove(dbR);
+            _context.SaveChanges();
+            System.Console.WriteLine("User deleted");
+            return dbR;
+        }
 }

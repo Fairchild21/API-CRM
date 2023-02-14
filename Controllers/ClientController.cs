@@ -56,34 +56,13 @@ public class ClientController : ControllerBase
             return tmp;
         }
 
-        // [HttpDelete ("{id}")]
-        // public string Delete(int id)
-        // {
-        //     _context.Users.Remove(sUser[id -1]);
-        //     _context.SaveChanges();
-        //     System.Console.WriteLine("User deleted");
-        //     return "User removed";
-        // }
-
-    // [HttpDelete ("{id}")]
-    // public string Delete(int id)
-    // {
-    //     using (var transaction = _context.Database.BeginTransaction())
-    //     {
-    //         try
-    //         {
-    //             Utilisateur db = _context.Utilisateur.Find(id);
-    //             _context.Utilisateur.Remove(db);
-    //             _context.SaveChanges();
-    //             transaction.Commit();
-    //             System.Console.WriteLine("User deleted");
-    //             return "User deleted";
-    //         }
-    //             catch (Exception)
-    //         {
-    //             transaction.Rollback();
-    //             return "Error deleting user";
-    //         }
-    //     }
-    // }
+         [HttpDelete ("{id}")]
+        public Client Delete(int id)
+        {
+             Client dbR = _context.Clients.Find(id);
+            _context.Clients.Remove(dbR);
+            _context.SaveChanges();
+            System.Console.WriteLine("User deleted");
+            return dbR;
+        }
 }
