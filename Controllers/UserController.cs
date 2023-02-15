@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using CRM.Models;
 using CRM;
 
@@ -10,13 +11,15 @@ public class UserController : ControllerBase
 {
     public static CrmContext _context = new();
     public static List<User> sUser = new();
+    private readonly JwtAuthenticationManager jwtAuthenticationManager;
     
   
 
-    public UserController()
+    public UserController(JwtAuthenticationManager jwtAuthenticationManager)
     {
-        
+        this.jwtAuthenticationManager = jwtAuthenticationManager;
     }
+        [Authorize]
         [HttpGet]
         public List<User> Get()
         {
@@ -31,9 +34,24 @@ public class UserController : ControllerBase
             return _context.Users.Find(id);
         }
 
+        [AllowAnonymous]
+        [HttpPost("Authorize")]
+        public string PostAuthenticate(User tmp)
+        {
+            var token = jwtAuthenticationManager.Authenticate(tmp.FirstName, tmp.Password);
+            if(token == null)
+            {
+                return "Unauthorized";
+            }
+            return (token);
+        }
+
+        [Authorize]
         [HttpPost]
+
         public string Post(User tmp)
         {
+
             _context.Users.Add(tmp);
             System.Console.WriteLine("user added");
             _context.SaveChanges();

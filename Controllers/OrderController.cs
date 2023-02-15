@@ -52,6 +52,7 @@ public class OrderController : ControllerBase
             db.Tva = tmp.Tva;
             db.State = tmp.State;
             db.Tva = tmp.Tva;
+            db.Comment = tmp.Comment;
             System.Console.WriteLine("MAJ");
             _context.SaveChanges();
     

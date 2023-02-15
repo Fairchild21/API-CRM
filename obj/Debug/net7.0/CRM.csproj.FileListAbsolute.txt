@@ -79,3 +79,4 @@ D:\CRM\obj\Debug\net7.0\refint\CRM.dll
 D:\CRM\obj\Debug\net7.0\CRM.pdb
 D:\CRM\obj\Debug\net7.0\CRM.genruntimeconfig.cache
 D:\CRM\obj\Debug\net7.0\ref\CRM.dll
+D:\CRM\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
